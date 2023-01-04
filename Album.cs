@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RhythmsGonnaGetYou
@@ -6,8 +7,8 @@ namespace RhythmsGonnaGetYou
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int IsExplicit { get; set; }
-        public int ReleaseDate { get; set; }
+        public bool IsExplicit { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
         public Band BandId { get; set; }
         public List<Album> Song { get; set; }
