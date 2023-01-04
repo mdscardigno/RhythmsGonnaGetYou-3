@@ -10,5 +10,7 @@ namespace RhythmsGonnaGetYou
         public string Genre { get; set; }
         public bool IsSigned { get; set; }
         public string ContactName { get; set; }
+
+        
     }
 }
