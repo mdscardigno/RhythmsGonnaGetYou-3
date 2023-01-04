@@ -256,3 +256,25 @@ VALUES(11, 'Bizarre Love Triangle', (6*60+42));--'00:06:42' duration in seconds 
 --Substance 1987
 INSERT INTO "Song" ("TrackNumber", "Title", "Duration")
 VALUES(12, 'True Faith', (5*60+55));--'00:05:55' duration in seconds is 355
+
+--Let a band go
+UPDATE "Band" SET "IsSigned" = false WHERE "Name" = 'The Killers';
+
+--Re-sign a band
+UPDATE "Band" SET "IsSigned" = true WHERE "Name" = 'The Killers';
+
+
+--Previous homework
+
+--Given a band name view all their albums
+SELECT "Title", "IsExplicit", "ReleaseDate" FROM "ALBUM"
+JOIN "Band" ON "BandId"."Id" = "Album"."BandId";
+
+--View all Albums and their associated songs ordered by release date
+SELECT * FROM "Song" JOIN "Album" ON "AlbumId" = "Song"."AlbumId" ORDER BY "ReleaseDate" DESC;
+
+--View all bands that are signed
+SELECT * FROM "Band" WHERE "IsSigned" = true;
+
+--View all bands that are not signed
+SELECT * FROM "Band" WHERE "IsSigned" = false;
