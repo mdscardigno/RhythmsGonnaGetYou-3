@@ -18,6 +18,14 @@ namespace RhythmsGonnaGetYou
             var albumsCount = context.Album.Count();
             Console.WriteLine($"There are {albumsCount} albums in the database.");
 
+            var bandsList = context.Band.ToList<Band>();
+
+            foreach (var band in bandsList)
+            {
+                Console.WriteLine($"{band.Name} is from {band.CountryOfOrigin}.");
+            }
+
+            // var keepGoing = true;
 
         }
         //METHODS
