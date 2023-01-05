@@ -10,9 +10,11 @@ namespace RhythmsGonnaGetYou
         public bool IsExplicit { get; set; }
         public DateTime ReleaseDate { get; set; }
 
-        public Band BandId { get; set; }
-        public List<Album> Song { get; set; }
+        //Column name in the database is "BandId"
+        public int BandId { get; set; }
+        public Band Band { get; set; }
 
+        public List<Song> Songs { get; set; }
 
     }
 }

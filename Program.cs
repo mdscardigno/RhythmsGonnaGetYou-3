@@ -15,14 +15,23 @@ namespace RhythmsGonnaGetYou
             DisplayGreeting();
             var context = new RhythmsGonnaGetYouContext();
 
-            var albumsCount = context.Album.Count();
-            Console.WriteLine($"There are {albumsCount} albums in the database.");
+            // var albumsCount = context.Album.Count();
+            // Console.WriteLine($"There are {albumsCount} albums in the database.");
 
-            var bandsList = context.Band.ToList<Band>();
+            var bandsList = context.Band.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
 
-            foreach (var band in bandsList)
+            foreach (Band b in bandsList)
             {
-                Console.WriteLine($"{band.Name} is from {band.CountryOfOrigin}.");
+                Console.WriteLine($"Band name is {b.Name}.");
+                foreach (Album a in b.Albums)
+                {
+                    Console.WriteLine($"The album {a.Title} is by the band {b.Name}");
+
+                    foreach (Song s in a.Songs)
+                    {
+                        Console.WriteLine($"The song {s.Title} is on the album {a.Title} by the band {b.Name}");
+                    }
+                }
             }
 
             // var keepGoing = true;

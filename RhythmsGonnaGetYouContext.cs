@@ -13,8 +13,8 @@ namespace RhythmsGonnaGetYou
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
-            optionsBuilder.UseLoggerFactory(loggerFactory);
+            // var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+            // optionsBuilder.UseLoggerFactory(loggerFactory);
 
             optionsBuilder.UseNpgsql("server=localhost;database=RhythmsGonnaGetYouDb");
         }
