@@ -18,7 +18,7 @@ CREATE TABLE "Albums" (
   "Title" TEXT,
   "IsExplicit" BOOL,
   "ReleaseDate" DATE,
-  "BandId" INT NULL REFERENCES "Band" ("Id")
+  "BandId" INT NULL REFERENCES "Bands" ("Id")
 );
 
 CREATE TABLE "Songs" (
@@ -26,7 +26,7 @@ CREATE TABLE "Songs" (
   "TrackNumber" INT,
   "Title" TEXT,
   "Duration" INT,
-  "AlbumId" INT NULL REFERENCES "Album" ("Id")
+  "AlbumId" INT NULL REFERENCES "Albums" ("Id")
 );
 
 --Adding Bands
@@ -114,8 +114,8 @@ VALUES ('Substance', false, '1987-12-01');
 --Adding Songs
 
 --Parachutes
-INSERT INTO "Song" ("TrackNumber", "Title", "Duration")
-VALUES (5, 'Yellow', (4*60+26));--'00:04:26' duration in seconds is 266
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumId")
+VALUES (5, 'Yellow', (4*60 + 26), 1);--'00:04:26' duration in seconds is 266
 
 --Music of the Spheres
 INSERT INTO "Songs" ("TrackNumber", "Title", "Duration")

@@ -34,8 +34,8 @@ namespace RhythmsGonnaGetYou
                 }
             }
 
-            var songsList = context.Bands.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
-            Console.WriteLine($"There are {songsList.Count} songs in the database.");
+            // var songsList = context.Bands.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
+            // Console.WriteLine($"There are {songsList.Count} songs in the database.");
 
             // var keepGoing = true;
 
