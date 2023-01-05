@@ -26,13 +26,16 @@ namespace RhythmsGonnaGetYou
                 foreach (Album a in b.Albums)
                 {
                     Console.WriteLine($"The album {a.Title} is by the band {b.Name}");
-
                     foreach (Song s in a.Songs)
                     {
-                        Console.WriteLine($"The song {s.Title} is on the album {a.Title} by the band {b.Name}");
+                        Console.WriteLine($"The song {s.Title} is on the album {a.Title}");
                     }
+
                 }
             }
+
+            var songsList = context.Band.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
+            Console.WriteLine($"There are {songsList.Count} songs in the database.");
 
             // var keepGoing = true;
 
