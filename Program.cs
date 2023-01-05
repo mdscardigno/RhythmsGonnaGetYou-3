@@ -18,7 +18,7 @@ namespace RhythmsGonnaGetYou
             // var albumsCount = context.Album.Count();
             // Console.WriteLine($"There are {albumsCount} albums in the database.");
 
-            var bandsList = context.Band.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
+            var bandsList = context.Bands.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
 
             foreach (Band b in bandsList)
             {
@@ -34,7 +34,7 @@ namespace RhythmsGonnaGetYou
                 }
             }
 
-            var songsList = context.Band.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
+            var songsList = context.Bands.Include(Band => Band.Albums).ThenInclude(Album => Album.Songs).ToList();
             Console.WriteLine($"There are {songsList.Count} songs in the database.");
 
             // var keepGoing = true;
